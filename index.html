@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Trave</title>
+    <link rel="stylesheet" href="./src/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1 class="main-title">Trave</h1>
+    </header>
+    <main class="main-container">
+        <div id="game">
+            <div id="attempts">
+            </div>
+            <input class="submit-content-input" type="text" id="guessInput" autofocus>
+            <button class="submit-content-button" onclick="submitGuess()">Enter ↵</button>
+        </div>
+
+        <div class="overlay" id="overlay"></div>
+
+        <div id="customMessage" style="display: none;">
+            <div class="alert">
+                <p onclick="hideAlert()" style="cursor: pointer; float:right;">&times;</p>
+                <p id="messageTitle"></p>
+                <p id="messageText"></p>
+            </div>
+        </div>
+  
+    </main>
+    <footer>
+        <p class="copyright">&copy;2024 Lucas de Morais. Disponibilizado sob a Licença MIT.</p>
+    </footer>
+    <script src="./src/js/script.js"></script>
+</body>
+</html>

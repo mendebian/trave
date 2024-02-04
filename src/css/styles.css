@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+:root {
+    --bg-clr: #2C3639;
+    --font-color: #DCD7C9;
+    --correct-clr: green;
+    --present-clr: orange;
+    --absent-clr: #3F4E4F;
+
+    --main-font: 'Kanit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: var(--main-font);
+    background-color: var(--bg-clr);
+    color: var(--font-color);
+}
+
+.main-container {
+    padding: 5%;
+}
+
+.main-title {
+    text-align: center;
+}
+
+#game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#attempts div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+#attempts div span {
+    border-radius: 10%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2.5px;
+    margin-left: 2.5px;
+}
+
+.footer {
+    width: 100%;
+    padding: 5%;
+}
+
+.box {
+    border: var(--absent-clr) solid 1px;
+}
+
+.correct { 
+    background-color: var(--correct-clr); 
+}
+
+.present { 
+    background-color: var(--present-clr); 
+}
+
+.absent { 
+    background-color: var(--absent-clr);
+}
+
+.submit-content-input {
+    width: 100%;
+    background-color: var(--bg-clr);
+    color: var(--font-color);
+    font-size: 1.5rem;
+    text-align: center;
+    outline: none;
+    border: none;  
+}
+
+.submit-content-button {
+    background-color: var(--absent-clr);
+    color: var(--font-color);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    border: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  #customMessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 1001;
+  }
+  
+  .alert {
+    padding: 20px;
+    background-color: var(--bg-clr);
+    color: var(--font-color);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+  
+#messageTitle {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+#messageText {
+    font-size: 1rem;
+}
+
+.copyright {
+    color: var(--absent-clr);
+    text-align: center;
+}
