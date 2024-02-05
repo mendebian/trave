@@ -82,7 +82,7 @@ function submitGuess() {
         attempts++;
 
         if (guess === wordOfTheDay) {
-            showAlert('PARABÉNS!', 'Você acertou o time do dia', true);
+            showAlert('PARABÉNS!', `Você acertou a equipe do dia (${attempts}/${maxAttempts})`, true);
             document.getElementById('guessInput').disabled = true;
         } else if (attempts === maxAttempts) {
             showAlert('Não foi dessa vez...', `Você atingiu o limite de tentativas. O time era ${wordOfTheDay}`, false);
