@@ -35,6 +35,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    position: relative; 
 }
 
 #attempts div {
@@ -73,19 +74,24 @@ body {
 .submit-content {
     border-bottom: var(--absent-clr) solid 1px;
     padding: 0.5rem;
+    display: flex;
+    gap: 5px;
+    align-items: center;
 }
 
 .submit-input {
     background-color: var(--bg-clr);
     color: var(--font-color);
     outline: none;
-    border: none; 
+    border: none;
+    font-size: 1rem;
 }
 
 .submit-button {
     background-color: var(--bg-clr);
-    color: var(--font-color);
+    color: var(--absent-clr);
     border: none;
+    font-size: 1rem;
 }
 
 .overlay {
@@ -115,12 +121,15 @@ body {
   }
   
   .alert {
-    padding: 20px;
+    padding: 1rem;
     background-color: var(--bg-clr);
     color: var(--font-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    text-align: center;
     width: auto;
     max-width: 400px;
 }
@@ -134,9 +143,31 @@ body {
     font-size: 1rem;
 }
 
+.alert-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 1rem
+}
+
+#closeButton {
+    padding: 0.5rem;
+    cursor: pointer;
+    background-color: var(--absent-clr);
+    border-radius: 5px;
+}
+
+#shareButton {
+    padding: 0.5rem;
+    display: none;
+    cursor: pointer;
+    background-color: var(--correct-clr);
+    border-radius: 5px;
+}
+
 .copyright {
     color: var(--absent-clr);
-    text-align: center;
+    text-align: right;
 }
 
 @media only screen and (max-width: 600px) {

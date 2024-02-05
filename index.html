@@ -16,7 +16,7 @@
             </div>
             <div class="submit-content">
                 <input class="submit-input" type="text" id="guessInput" autofocus>
-                <button class="submit-button" onclick="submitGuess()">Enter</button>
+                <button class="submit-button" onclick="submitGuess()">ENTER</button>
             </div>
         </div>
 
@@ -24,9 +24,12 @@
 
         <div id="customMessage" style="display: none;">
             <div class="alert">
-                <p onclick="hideAlert()" style="cursor: pointer; float:right;">&times;</p>
                 <p id="messageTitle"></p>
                 <p id="messageText"></p>
+                <section class="alert-buttons">
+                    <p id="shareButton" onclick="shareResult()">Compartilhar</p>
+                    <p id="closeButton" onclick="hideAlert()">Fechar</p>
+                </section>
             </div>
         </div>
   

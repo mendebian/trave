@@ -47,7 +47,7 @@ document.getElementById('guessInput').addEventListener('keypress', function (e) 
 });
 
 let attempts = 0;
-const maxAttempts = 5;
+const maxAttempts = 6;
 
 function submitGuess() {
     if (attempts < maxAttempts) {
@@ -55,7 +55,7 @@ function submitGuess() {
         let guess = input.value.toUpperCase();
 
         if (guess.length !== wordOfTheDay.length) {
-            showAlert('CHAMA O VAR', `A palavra deve ter ${wordOfTheDay.length} letras`);
+            showAlert('CHAMA O VAR', `A palavra deve ter ${wordOfTheDay.length} letras`, false);
             return;
         }
 
@@ -82,18 +82,21 @@ function submitGuess() {
         attempts++;
 
         if (guess === wordOfTheDay) {
-            showAlert('PARABÉNS!', 'Você acertou o time do dia');
+            showAlert('PARABÉNS!', 'Você acertou o time do dia', true);
             document.getElementById('guessInput').disabled = true;
         } else if (attempts === maxAttempts) {
-            showAlert('Não foi dessa vez...', 'Você atingiu o limite de tentativas');
+            showAlert('Não foi dessa vez...', `Você atingiu o limite de tentativas. O time era ${wordOfTheDay}`, false);
             document.getElementById('guessInput').disabled = true;
         }
     } else {
-        showAlert('Que pena!','Você já atingiu o limite de tentativas');
+        showAlert('Que pena!','Você já atingiu o limite de tentativas', false);
     }
 }
 
-function showAlert(title, message) {
+function showAlert(title, message, share) {
+    if (share) {
+        document.getElementById('shareButton').style.display = 'block';
+    }
     document.getElementById('messageTitle').textContent = title;
     document.getElementById('messageText').textContent = message;
     document.getElementById('overlay').style.display = 'flex';
@@ -103,4 +106,16 @@ function showAlert(title, message) {
 function hideAlert() {
     document.getElementById('overlay').style.display = 'none';
     document.getElementById('customMessage').style.display = 'none';
+}
+
+function shareResult() {
+    let shareMessage = `joguei travee.vercel.app ⚽ ${attempts}/${maxAttempts}`;
+
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(shareMessage)
+            .then(() => alert("Mensagem copiada para a área de transferência!"))
+            .catch((err) => console.error("Falha ao copiar texto: ", err));
+    } else {
+        alert("A função de copiar não é suportada neste navegador.");
+    }
 }
