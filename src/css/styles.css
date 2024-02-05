@@ -143,3 +143,9 @@ body {
     color: var(--absent-clr);
     text-align: center;
 }
+
+@media only screen and (max-width: 600px) {
+    .copyright {
+        font-size: 12px;
+    }
+}
