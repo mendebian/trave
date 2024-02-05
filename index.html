@@ -20,19 +20,23 @@
             </div>
         </div>
 
-        <div class="overlay" id="overlay"></div>
+        <div class="result-pop-up-overlay" id="result-pop-up-overlay"></div>
 
-        <div id="customMessage" style="display: none;">
-            <div class="alert">
-                <p id="messageTitle"></p>
-                <p id="messageText"></p>
-                <section class="alert-buttons">
-                    <p id="shareButton" onclick="shareResult()">Compartilhar <img src="./src/img/share.png"></p>
-                    <p id="closeButton" onclick="hideAlert()">Fechar</p>
+        <div id="result-pop-up" style="display: none;">
+            <div class="result-container">
+                <p id="result-title"></p>
+                <p id="result-text"></p>
+                <section class="result-buttons">
+                    <p id="share-button" onclick="shareResult()">Compartilhar</p>
+                    <p id="close-button" onclick="hideAlert()">Fechar</p>
                 </section>
             </div>
         </div>
-  
+
+        <div id="hint-pop-up" style="display: none;">
+            <p id="hint-text"></p>
+        </div>
+
     </main>
     <footer>
         <p class="copyright">&copy;2024 Lucas de Morais. Disponibilizado sob a Licença MIT.</p>

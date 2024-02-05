@@ -55,7 +55,7 @@ function submitGuess() {
         let guess = input.value.toUpperCase();
 
         if (guess.length !== wordOfTheDay.length) {
-            showAlert('CHAMA O VAR', `A palavra deve ter ${wordOfTheDay.length} letras`, false);
+            showHint(`A palavra deve ter ${wordOfTheDay.length} letras`);
             return;
         }
 
@@ -82,30 +82,30 @@ function submitGuess() {
         attempts++;
 
         if (guess === wordOfTheDay) {
-            showAlert('PARABÉNS!', `Você acertou a equipe do dia (${attempts}/${maxAttempts})`, true);
+            showResult('PARABÉNS!', `Você acertou a equipe do dia (${attempts}/${maxAttempts})`, true);
             document.getElementById('guessInput').disabled = true;
         } else if (attempts === maxAttempts) {
-            showAlert('Não foi dessa vez...', `Você atingiu o limite de tentativas. O time era ${wordOfTheDay}`, false);
+            showResult('Não foi dessa vez...', `Você atingiu o limite de tentativas. O time era ${wordOfTheDay}`, false);
             document.getElementById('guessInput').disabled = true;
         }
     } else {
-        showAlert('Que pena!','Você já atingiu o limite de tentativas', false);
+        showResult('Que pena!','Você já atingiu o limite de tentativas', false);
     }
 }
 
-function showAlert(title, message, share) {
+function showResult(title, message, share) {
     if (share) {
-        document.getElementById('shareButton').style.display = 'block';
+        document.getElementById('share-button').style.display = 'block';
     }
-    document.getElementById('messageTitle').textContent = title;
-    document.getElementById('messageText').textContent = message;
-    document.getElementById('overlay').style.display = 'flex';
-    document.getElementById('customMessage').style.display = 'flex';
+    document.getElementById('result-title').textContent = title;
+    document.getElementById('result-text').textContent = message;
+    document.getElementById('result-pop-up-overlay').style.display = 'flex';
+    document.getElementById('result-pop-up').style.display = 'flex';
 }
 
-function hideAlert() {
-    document.getElementById('overlay').style.display = 'none';
-    document.getElementById('customMessage').style.display = 'none';
+function hideResult() {
+    document.getElementById('result-pop-up-overlay').style.display = 'none';
+    document.getElementById('result-pop-up').style.display = 'none';
 }
 
 function shareResult() {
@@ -113,9 +113,18 @@ function shareResult() {
 
     if (navigator.clipboard) {
         navigator.clipboard.writeText(shareMessage)
-            .then(() => alert("Mensagem copiada para a área de transferência!"))
+            .then(() => showHint("Mensagem copiada para a área de transferência") & hideResult())
             .catch((err) => console.error("Falha ao copiar texto: ", err));
     } else {
-        alert("A função de copiar não é suportada neste navegador.");
+        showHint("A função de copiar não é suportada neste navegador");
     }
+}
+
+function showHint(message) {
+    document.getElementById('hint-text').textContent = message;
+    document.getElementById('hint-pop-up').style.display = 'flex';
+
+    setTimeout(function() {
+        document.getElementById('hint-pop-up').style.display = 'none';
+    }, 1500);
 }
