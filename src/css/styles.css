@@ -45,18 +45,13 @@ body {
 
 #attempts div span {
     border-radius: 10%;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 2.5px;
     margin-left: 2.5px;
-}
-
-.footer {
-    width: 100%;
-    padding: 5%;
 }
 
 .box {
@@ -75,21 +70,21 @@ body {
     background-color: var(--absent-clr);
 }
 
-.submit-content-input {
-    width: 100%;
-    background-color: var(--bg-clr);
-    color: var(--font-color);
-    font-size: 1.5rem;
-    text-align: center;
-    outline: none;
-    border: none;  
+.submit-content {
+    border-bottom: var(--absent-clr) solid 1px;
+    padding: 0.5rem;
 }
 
-.submit-content-button {
-    background-color: var(--absent-clr);
+.submit-input {
+    background-color: var(--bg-clr);
     color: var(--font-color);
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
+    outline: none;
+    border: none; 
+}
+
+.submit-button {
+    background-color: var(--bg-clr);
+    color: var(--font-color);
     border: none;
 }
 
@@ -98,7 +93,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 1000%;
     background: rgba(0, 0, 0, 0.5);
     display: none;
     justify-content: center;
@@ -126,7 +121,7 @@ body {
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     text-align: center;
-    width: 90%;
+    width: auto;
     max-width: 400px;
 }
   
@@ -145,6 +140,11 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+    #attempts div span {
+        width: 20px;
+        height: 20px;
+    }
+    
     .copyright {
         font-size: 12px;
     }
